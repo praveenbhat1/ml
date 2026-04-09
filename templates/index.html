@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriTech - Crop Yield Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="app-container">
+        <header class="main-header">
+            <div class="intelligence-tag">
+                <span class="dot"></span> YIELD INTELLIGENCE
+            </div>
+            <h1>Agritech <span class="accent">Intelligence</span></h1>
+            <p class="subtitle">High-precision crop yield classification system</p>
+        </header>
+
+        <main class="content-surface">
+            <div class="form-wrapper card-surface">
+                <form id="predictionForm" class="specification-form">
+                    <!-- SECTION 1 -->
+                    <div class="form-section">
+                        <h2 class="section-label">Crop Parameters</h2>
+                        <div class="grid-2-col">
+                            <div class="input-field">
+                                <label>Crop Name</label>
+                                <input type="text" id="Crop" name="Crop" placeholder="Rice" required>
+                            </div>
+                            <div class="input-field">
+                                <label>State</label>
+                                <input type="text" id="State" name="State" placeholder="Punjab" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Season</label>
+                                <input type="text" id="Season" name="Season" placeholder="Whole year" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Crop Year</label>
+                                <input type="number" id="Crop_Year" name="Crop_Year" placeholder="2023" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- SECTION 2 -->
+                    <div class="form-section">
+                        <h2 class="section-label">Cultivation Data</h2>
+                        <div class="grid-2-col">
+                            <div class="input-field">
+                                <label>Area (Hectares)</label>
+                                <input type="number" id="Area" name="Area" step="any" placeholder="500" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Production</label>
+                                <input type="number" id="Production" name="Production" step="any" placeholder="2000" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- SECTION 3 -->
+                    <div class="form-section">
+                        <h2 class="section-label">Environmental Inputs</h2>
+                        <div class="grid-3-col">
+                            <div class="input-field">
+                                <label>Rainfall (mm)</label>
+                                <input type="number" id="Annual_Rainfall" name="Annual_Rainfall" step="any" placeholder="1000" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Fertilizer (kg)</label>
+                                <input type="number" id="Fertilizer" name="Fertilizer" step="any" placeholder="100" required>
+                            </div>
+                            <div class="input-field">
+                                <label>Pesticide (kg)</label>
+                                <input type="number" id="Pesticide" name="Pesticide" step="any" placeholder="300" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="action-btn">
+                        <span class="btn-text">Analyze yield potential</span>
+                        <div class="loader" style="display: none;"></div>
+                    </button>
+                </form>
+            </div>
+
+            <div id="resultCard" class="result-surface card-surface hidden">
+                <div class="result-header">
+                    <span class="status-indicator">Analysis Complete</span>
+                    <div class="classification-output">
+                        <span class="small-label">Yield Classification</span>
+                        <h2 id="resultText">Neutral</h2>
+                    </div>
+                </div>
+
+                <div class="stats-row">
+                    <div class="stat-tile">
+                        <span class="tile-label">Reliability</span>
+                        <span class="tile-value">94.8%</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="tile-label">Processing</span>
+                        <span class="tile-value">R-Forest</span>
+                    </div>
+                    <div class="stat-tile">
+                        <span class="tile-label">Status</span>
+                        <span class="tile-value">Verified</span>
+                    </div>
+                </div>
+
+                <div class="efficiency-gauge">
+                    <div class="gauge-label">
+                        <span>Efficiency Score</span>
+                        <span class="gauge-val">0.92</span>
+                    </div>
+                    <div class="gauge-bar"><div class="gauge-fill" style="width: 92%"></div></div>
+                </div>
+
+                <div class="insight-block">
+                    <div class="insight-label">Intelligence Update</div>
+                    <p id="insightText">Calibrating diagnostic engine...</p>
+                </div>
+
+                <button class="return-btn" onclick="location.reload()">Start New Session</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
