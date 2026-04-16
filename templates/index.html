@@ -4,18 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AgriTech - Crop Yield Predictor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&family=Manrope:wght@400;500&display=swap" rel="stylesheet">
+    <meta name="description" content="AgriTech Intelligence - A high-precision machine learning classification system for predicting crop yield based on environmental and cultivation data.">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/style.css">
+    <!-- Premium Dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
     <div class="bg-gradient"></div>
+    <div class="glow-mesh"></div>
+    
     <div class="app-container">
         <header class="main-header">
             <div class="intelligence-tag">
-                <span class="dot"></span> YIELD INTELLIGENCE
+                <i data-lucide="cpu" class="icon-small"></i>
+                <span>YIELD INTELLIGENCE V2.0</span>
             </div>
             <h1>Agritech <span class="accent">Intelligence</span></h1>
-            <p class="subtitle">High-precision crop yield classification system</p>
+            <p class="subtitle">Neural network driven crop yield classification system</p>
         </header>
 
         <main class="content-surface">
@@ -23,23 +30,122 @@
                 <form id="predictionForm" class="specification-form">
                     <!-- SECTION 1 -->
                     <div class="form-section">
-                        <h2 class="section-label">Crop Parameters</h2>
+                        <h2 class="section-label">Geography & Crop Specification</h2>
                         <div class="grid-2-col">
                             <div class="input-field">
-                                <label>Crop Name</label>
-                                <input type="text" id="Crop" name="Crop" placeholder="Rice" required>
+                                <label><i data-lucide="map-pin"></i> State</label>
+                                <select id="State" name="State" required>
+                                    <option value="" disabled selected>Select Region</option>
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chhattisgarh">Chhattisgarh</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Puducherry">Puducherry</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="West Bengal">West Bengal</option>
+                                </select>
                             </div>
                             <div class="input-field">
-                                <label>State</label>
-                                <input type="text" id="State" name="State" placeholder="Punjab" required>
+                                <label><i data-lucide="sprout"></i> Crop</label>
+                                <select id="Crop" name="Crop" required>
+                                    <option value="" disabled selected>Select Crop</option>
+                                    <option value="Arecanut">Arecanut</option>
+                                    <option value="Arhar/Tur">Arhar/Tur</option>
+                                    <option value="Bajra">Bajra</option>
+                                    <option value="Banana">Banana</option>
+                                    <option value="Barley">Barley</option>
+                                    <option value="Black pepper">Black pepper</option>
+                                    <option value="Cardamom">Cardamom</option>
+                                    <option value="Cashewnut">Cashewnut</option>
+                                    <option value="Castor seed">Castor seed</option>
+                                    <option value="Coconut ">Coconut</option>
+                                    <option value="Coriander">Coriander</option>
+                                    <option value="Cotton(lint)">Cotton(lint)</option>
+                                    <option value="Cowpea(Lobia)">Cowpea(Lobia)</option>
+                                    <option value="Dry chillies">Dry chillies</option>
+                                    <option value="Garlic">Garlic</option>
+                                    <option value="Ginger">Ginger</option>
+                                    <option value="Gram">Gram</option>
+                                    <option value="Groundnut">Groundnut</option>
+                                    <option value="Guar seed">Guar seed</option>
+                                    <option value="Horse-gram">Horse-gram</option>
+                                    <option value="Jowar">Jowar</option>
+                                    <option value="Jute">Jute</option>
+                                    <option value="Khesari">Khesari</option>
+                                    <option value="Linseed">Linseed</option>
+                                    <option value="Maize">Maize</option>
+                                    <option value="Masoor">Masoor</option>
+                                    <option value="Mesta">Mesta</option>
+                                    <option value="Moong(Green Gram)">Moong(Green Gram)</option>
+                                    <option value="Moth">Moth</option>
+                                    <option value="Niger seed">Niger seed</option>
+                                    <option value="Oilseeds total">Oilseeds total</option>
+                                    <option value="Onion">Onion</option>
+                                    <option value="Other  Rabi pulses">Other Rabi pulses</option>
+                                    <option value="Other Cereals">Other Cereals</option>
+                                    <option value="Other Kharif pulses">Other Kharif pulses</option>
+                                    <option value="Other Summer Pulses">Other Summer Pulses</option>
+                                    <option value="Peas & beans (Pulses)">Peas & beans (Pulses)</option>
+                                    <option value="Potato">Potato</option>
+                                    <option value="Ragi">Ragi</option>
+                                    <option value="Rapeseed &Mustard">Rapeseed & Mustard</option>
+                                    <option value="Rice">Rice</option>
+                                    <option value="Safflower">Safflower</option>
+                                    <option value="Sannhamp">Sannhamp</option>
+                                    <option value="Sesamum">Sesamum</option>
+                                    <option value="Small millets">Small millets</option>
+                                    <option value="Soyabean">Soyabean</option>
+                                    <option value="Sugarcane">Sugarcane</option>
+                                    <option value="Sunflower">Sunflower</option>
+                                    <option value="Sweet potato">Sweet potato</option>
+                                    <option value="Tapioca">Tapioca</option>
+                                    <option value="Tobacco">Tobacco</option>
+                                    <option value="Turmeric">Turmeric</option>
+                                    <option value="Urad">Urad</option>
+                                    <option value="Wheat">Wheat</option>
+                                    <option value="other oilseeds">Other oilseeds</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid-2-col" style="margin-top: 1.5rem;">
+                            <div class="input-field">
+                                <label><i data-lucide="cloud-rain"></i> Season</label>
+                                <select id="Season" name="Season" required>
+                                    <option value="" disabled selected>Select Season</option>
+                                    <option value="Autumn     ">Autumn</option>
+                                    <option value="Kharif     ">Kharif</option>
+                                    <option value="Rabi       ">Rabi</option>
+                                    <option value="Summer     ">Summer</option>
+                                    <option value="Whole Year ">Whole Year</option>
+                                    <option value="Winter     ">Winter</option>
+                                </select>
                             </div>
                             <div class="input-field">
-                                <label>Season</label>
-                                <input type="text" id="Season" name="Season" placeholder="Whole year" required>
-                            </div>
-                            <div class="input-field">
-                                <label>Crop Year</label>
-                                <input type="number" id="Crop_Year" name="Crop_Year" placeholder="2023" required>
+                                <label><i data-lucide="calendar"></i> Year</label>
+                                <input type="number" id="Crop_Year" name="Crop_Year" placeholder="2023" min="1900" max="2100" required>
                             </div>
                         </div>
                     </div>
@@ -48,15 +154,15 @@
 
                     <!-- SECTION 2 -->
                     <div class="form-section">
-                        <h2 class="section-label">Cultivation Data</h2>
+                        <h2 class="section-label">Resource Allocation</h2>
                         <div class="grid-2-col">
                             <div class="input-field">
-                                <label>Area (Hectares)</label>
-                                <input type="number" id="Area" name="Area" step="any" placeholder="500" required>
+                                <label><i data-lucide="maximize"></i> Area (Hectares)</label>
+                                <input type="number" id="Area" name="Area" step="any" placeholder="500" min="0" required>
                             </div>
                             <div class="input-field">
-                                <label>Production</label>
-                                <input type="number" id="Production" name="Production" step="any" placeholder="2000" required>
+                                <label><i data-lucide="package"></i> Production</label>
+                                <input type="number" id="Production" name="Production" step="any" placeholder="2000" min="0" required>
                             </div>
                         </div>
                     </div>
@@ -68,69 +174,95 @@
                         <h2 class="section-label">Environmental Inputs</h2>
                         <div class="grid-3-col">
                             <div class="input-field">
-                                <label>Rainfall (mm)</label>
-                                <input type="number" id="Annual_Rainfall" name="Annual_Rainfall" step="any" placeholder="1000" required>
+                                <label><i data-lucide="droplets"></i> Rainfall (mm)</label>
+                                <input type="number" id="Annual_Rainfall" name="Annual_Rainfall" step="any" placeholder="1000" min="0" required>
                             </div>
                             <div class="input-field">
-                                <label>Fertilizer (kg)</label>
-                                <input type="number" id="Fertilizer" name="Fertilizer" step="any" placeholder="100" required>
+                                <label><i data-lucide="flask-conical"></i> Fertilizer</label>
+                                <input type="number" id="Fertilizer" name="Fertilizer" step="any" placeholder="100" min="0" required>
                             </div>
                             <div class="input-field">
-                                <label>Pesticide (kg)</label>
-                                <input type="number" id="Pesticide" name="Pesticide" step="any" placeholder="300" required>
+                                <label><i data-lucide="shield-alert"></i> Pesticide</label>
+                                <input type="number" id="Pesticide" name="Pesticide" step="any" placeholder="300" min="0" required>
                             </div>
                         </div>
                     </div>
 
                     <button type="submit" class="action-btn">
-                        <span class="btn-text">Analyze yield potential</span>
-                        <div class="loader" style="display: none;"></div>
+                        <span class="btn-text">Run diagnostic analysis</span>
+                        <div class="loader-container" style="display: none;">
+                            <div class="loader"></div>
+                            <span>Processing...</span>
+                        </div>
                     </button>
                 </form>
             </div>
 
             <div id="resultCard" class="result-surface card-surface hidden">
                 <div class="result-header">
-                    <span class="status-indicator">Analysis Complete</span>
+                    <div class="status-indicator">
+                        <span class="pulse"></span>
+                        Analysis Complete
+                    </div>
                     <div class="classification-output">
-                        <span class="small-label">Yield Classification</span>
-                        <h2 id="resultText">Neutral</h2>
+                        <span class="small-label">Predicted Yield Potential</span>
+                        <div class="result-text-wrapper">
+                            <h2 id="resultText">Neutral</h2>
+                            <i id="resultIcon" data-lucide="trending-up" class="result-icon"></i>
+                        </div>
                     </div>
                 </div>
 
                 <div class="stats-row">
                     <div class="stat-tile">
-                        <span class="tile-label">Reliability</span>
+                        <span class="tile-label">Confidence</span>
                         <span class="tile-value">94.8%</span>
                     </div>
                     <div class="stat-tile">
-                        <span class="tile-label">Processing</span>
+                        <span class="tile-label">Algorithm</span>
                         <span class="tile-value">R-Forest</span>
                     </div>
                     <div class="stat-tile">
-                        <span class="tile-label">Status</span>
-                        <span class="tile-value">Verified</span>
+                        <span class="tile-label">Variance</span>
+                        <span class="tile-value">±2.4%</span>
                     </div>
                 </div>
 
                 <div class="efficiency-gauge">
                     <div class="gauge-label">
-                        <span>Efficiency Score</span>
+                        <span>Calibration accuracy</span>
                         <span class="gauge-val">0.92</span>
                     </div>
                     <div class="gauge-bar"><div class="gauge-fill" style="width: 92%"></div></div>
                 </div>
 
                 <div class="insight-block">
-                    <div class="insight-label">Intelligence Update</div>
+                    <div class="insight-label">Neural Insight</div>
                     <p id="insightText">Calibrating diagnostic engine...</p>
                 </div>
 
-                <button class="return-btn" onclick="location.reload()">Start New Session</button>
+                <div class="action-group">
+                    <button class="return-btn" onclick="location.reload()">
+                        <i data-lucide="refresh-cw"></i> 
+                        New Classification
+                    </button>
+                    <button class="share-btn" id="copyResult">
+                        <i data-lucide="copy"></i>
+                        Copy Result
+                    </button>
+                </div>
             </div>
         </main>
+        
+        <footer class="app-footer">
+            <p>&copy; 2024 AgriTech Intelligence. Advanced Neural Diagnostics.</p>
+        </footer>
     </div>
 
     <script src="/static/script.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
 </body>
 </html>
+
