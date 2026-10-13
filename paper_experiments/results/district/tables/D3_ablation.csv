@@ -1,0 +1,5 @@
+Feature set,R2,Within-crop R2
+All features,0.842 ± 0.002,0.299 ± 0.009
+− Rainfall,0.854 ± 0.001,0.351 ± 0.004
+"− Rainfall, − Area",0.853 ± 0.000,0.349 ± 0.002
+"Identity only (Crop, Season, State, District)",0.830 ± 0.001,0.245 ± 0.003

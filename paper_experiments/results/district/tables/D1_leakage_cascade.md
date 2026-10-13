@@ -1,0 +1,8 @@
+District level. Random forest, mean ± std over 5 seeds.
+
+| Setting                                                     | RF accuracy   | RF F1         | Crop-only baseline acc.   |
+|:------------------------------------------------------------|:--------------|:--------------|:--------------------------|
+| 1. Original: global-median label, +Production, random split | 0.983 ± 0.001 | 0.983 ± 0.001 | 0.820 ± 0.002             |
+| 2. Remove Production                                        | 0.915 ± 0.000 | 0.914 ± 0.000 | 0.820 ± 0.002             |
+| 3. + Time-based split                                       | 0.856 ± 0.001 | 0.878 ± 0.001 | 0.793 ± 0.000             |
+| 4. + Per-crop median label                                  | 0.774 ± 0.000 | 0.827 ± 0.000 | 0.628 ± 0.000             |

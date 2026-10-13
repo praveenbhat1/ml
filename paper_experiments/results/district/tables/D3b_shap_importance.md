@@ -1,0 +1,11 @@
+Mean |SHAP| on 20,000 test records (XGBoost).
+
+| Feature         |   mean |SHAP| |
+|:----------------|--------------:|
+| Crop            |        0.7688 |
+| Season          |        0.2214 |
+| Crop_Year       |        0.1594 |
+| State           |        0.1291 |
+| District        |        0.0933 |
+| Annual_Rainfall |        0.0663 |
+| log_Area        |        0.0467 |

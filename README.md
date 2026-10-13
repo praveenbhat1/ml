@@ -5,12 +5,12 @@
 ![Flask](https://img.shields.io/badge/flask-%23000.svg?style=for-the-badge&logo=flask&logoColor=white)
 ![Scikit-Learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white)
 
-AgriTech Intelligence is a high-precision machine learning classification system designed to predict crop yield potential. By analyzing environmental factors, cultivation data, and historical trends, the platform provides actionable insights for farmers and agricultural researchers.
+AgriTech Intelligence is a machine learning demo that classifies crop yield potential (High/Low). By analyzing environmental factors, cultivation data, and historical trends, the platform provides actionable insights for farmers and agricultural researchers.
 
 ## 🚀 Features
 
 - **Real-time Classification**: Instant yield analysis (High/Low) using a pre-trained Random Forest model.
-- **Data-Driven Insights**: Considers multiple variables such as Rainfall, Fertilizer, Pesticide usage, and Production area.
+- **Inputs**: Crop, Season, State, Year, Area, Production, Rainfall, Fertilizer and Pesticide.
 - **Premium UI**: Sleek, dark-themed responsive interface built for modern browsers.
 - **Cross-Platform**: Works seamlessly on desktop and mobile devices.
 
@@ -66,3 +66,33 @@ The system uses a **Random Forest Classifier** trained on historical agricultura
 ## 🤝 Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+
+## 📄 Research paper: leakage-aware benchmark
+
+The `paper_experiments/` folder contains the code and results for our paper
+*"How Accurate Is Crop-Yield Prediction Really? A Leakage-Aware Benchmark on Indian State- and District-Level Data"*.
+
+```bash
+cd paper_experiments
+pip install -r requirements.txt   # macOS: also run `brew install libomp` for XGBoost
+python run_all.py                 # state-level study, ~5 minutes
+python run_district.py            # district-level study, ~12 minutes (download the data first, see paper_experiments/README.md)
+```
+
+| Experiment | Output |
+|---|---|
+| E0 Data audit (fertilizer/pesticide = area × yearly rate) | `results/tables/E0_*` |
+| E1 Leakage cascade (95.7% → 80.7%) | `results/tables/E1_*`, `results/figures/fig1_*` |
+| E2 Regression benchmark, time split, Wilcoxon tests | `results/tables/E2_*`, `results/figures/fig3_*` |
+| E3 Feature ablation + SHAP | `results/tables/E3_*`, `results/figures/fig2_*` |
+| E4 Unseen-state generalisation | `results/tables/E4_*` |
+| D0–D4 District-level replication (official APY data) | `results/district/tables/D*` |
+
+Seeds 0–4; train 1997–2014, test 2015–2020; cluster bootstrap (1000 resamples) and series-level Wilcoxon tests. Package versions are pinned in `paper_experiments/requirements.txt`.
+
+> **Note on the web demo:** the Flask app uses the original model, which takes *Production* as an input.
+> Because Yield = Production ÷ Area, this feature leaks the answer, so the demo's accuracy (~95%) is
+> optimistic. See the paper for an honest evaluation (80.7% at state level and 77.4% at district level after removing the shortcuts).
+
+**Dataset:** [Crop Yield in Indian States (Kaggle)](https://www.kaggle.com/datasets/akshatgupta7/crop-yield-in-indian-states-dataset)

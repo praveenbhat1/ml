@@ -1,0 +1,20 @@
+{
+  "rows_raw": 19689,
+  "rows_dropped_nonpositive": 112,
+  "rows_used": 19577,
+  "years": [
+    1997,
+    2020
+  ],
+  "crops": 55,
+  "states": 30,
+  "seasons": 6,
+  "max_rainfall_values_per_state_year": 1,
+  "max_fert_rate_cv_any_year": 4.5191026465745516e-11,
+  "max_pest_rate_cv_any_year": 4.190817596216651e-16,
+  "corr_log_fert_vs_log_area": 0.9975023965776432,
+  "yield_vs_production_over_area_median_rel_err": 0.051215918146394104,
+  "share_log_yield_variance_explained_by_crop": 0.8083113058953041,
+  "train_rows_time_split": 14324,
+  "test_rows_time_split": 5253
+}

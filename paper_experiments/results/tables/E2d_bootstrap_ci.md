@@ -1,0 +1,14 @@
+Cluster bootstrap: 1000 resamples of the 886 State-Crop series in the test set (5253 records). ML: mean over 5 seeds of per-seed R2 (matches Table E2).
+
+| Model                             |     R2 | R2 95% CI        |   Within-crop R2 | Within-crop R2 95% CI   |
+|:----------------------------------|-------:|:-----------------|-----------------:|:------------------------|
+| Global mean                       | -0.011 | [-0.026, -0.002] |           -4.002 | [-5.235, -2.917]        |
+| Crop mean                         |  0.778 | [0.721, 0.819]   |           -0.097 | [-0.148, -0.060]        |
+| State + Crop mean                 |  0.882 | [0.850, 0.907]   |            0.416 | [0.327, 0.488]          |
+| State + Crop + Season mean        |  0.889 | [0.858, 0.910]   |            0.449 | [0.365, 0.521]          |
+| Last observed yield (persistence) |  0.908 | [0.882, 0.928]   |            0.546 | [0.463, 0.618]          |
+| Ridge                             |  0.831 | [0.786, 0.864]   |            0.164 | [0.120, 0.207]          |
+| Random Forest                     |  0.871 | [0.836, 0.898]   |            0.364 | [0.266, 0.449]          |
+| XGBoost                           |  0.9   | [0.873, 0.919]   |            0.504 | [0.447, 0.555]          |
+| LightGBM                          |  0.894 | [0.866, 0.915]   |            0.475 | [0.417, 0.528]          |
+| XGBoost + yield history           |  0.904 | [0.878, 0.923]   |            0.526 | [0.458, 0.588]          |

@@ -2,3 +2,10 @@ venv/
 __pycache__/
 *.pyc
 .DS_Store
+
+# paper build artifacts
+*.aux
+*.log
+
+# large official dataset: download with the command in paper_experiments/README.md
+apy_district.csv

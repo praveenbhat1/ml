@@ -1,0 +1,9 @@
+5-fold GroupKFold by State (test states never seen in training); mean ± std over folds.
+
+| Model              | R2            | Within-crop R2   | RMSE          |
+|:-------------------|:--------------|:-----------------|:--------------|
+| Crop mean          | 0.755 ± 0.108 | -0.084 ± 0.108   | 0.693 ± 0.090 |
+| Crop + Season mean | 0.750 ± 0.109 | -0.108 ± 0.114   | 0.700 ± 0.091 |
+| Random Forest      | 0.577 ± 0.104 | -1.019 ± 0.535   | 0.932 ± 0.129 |
+| XGBoost            | 0.686 ± 0.080 | -0.470 ± 0.190   | 0.806 ± 0.107 |
+| LightGBM           | 0.701 ± 0.097 | -0.386 ± 0.278   | 0.782 ± 0.125 |

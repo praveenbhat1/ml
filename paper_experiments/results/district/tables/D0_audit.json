@@ -1,0 +1,18 @@
+{
+  "rows_raw": 455359,
+  "rows_after_drop_total_season": 407315,
+  "rows_used": 360563,
+  "years": [
+    1997,
+    2020
+  ],
+  "states": 34,
+  "districts": 713,
+  "crops": 66,
+  "seasons": 6,
+  "share_rows_with_rainfall": 0.869,
+  "yield_vs_production_over_area_median_rel_err": 0.00010675473043165154,
+  "share_log_yield_variance_explained_by_crop": 0.79,
+  "train_rows": 254028,
+  "test_rows": 106535
+}
