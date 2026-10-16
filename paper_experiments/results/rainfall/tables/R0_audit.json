@@ -1,0 +1,9 @@
+{
+  "rows": 198882,
+  "train_rows": 92347,
+  "test_rows": 106535,
+  "share_with_district_seasonal_rain": 0.924,
+  "share_with_state_annual_rain": 0.85,
+  "districts_matched": 607,
+  "districts_total": 711
+}

@@ -78,6 +78,8 @@ cd paper_experiments
 pip install -r requirements.txt   # macOS: also run `brew install libomp` for XGBoost
 python run_all.py                 # state-level study, ~5 minutes
 python run_district.py            # district-level study, ~12 minutes (download the data first, see paper_experiments/README.md)
+python run_forecast.py            # rolling origin + persistence + correction
+python run_rainfall.py            # IMD district seasonal rainfall test
 ```
 
 | Experiment | Output |
@@ -88,6 +90,8 @@ python run_district.py            # district-level study, ~12 minutes (download 
 | E3 Feature ablation + SHAP | `results/tables/E3_*`, `results/figures/fig2_*` |
 | E4 Unseen-state generalisation | `results/tables/E4_*` |
 | D0–D4 District-level replication (official APY data) | `results/district/tables/D*` |
+| F1–F3 Rolling persistence and persistence + correction | `results/forecast/tables/F*` |
+| R0–R2 IMD district seasonal rainfall test | `results/rainfall/tables/R*` |
 
 Seeds 0–4; train 1997–2014, test 2015–2020; cluster bootstrap (1000 resamples) and series-level Wilcoxon tests. Package versions are pinned in `paper_experiments/requirements.txt`.
 

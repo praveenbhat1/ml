@@ -1,0 +1,14 @@
+Paired cluster bootstrap for ΔR2; Wilcoxon signed-rank on series-level mean absolute errors.
+
+| Level    | Setting          | Comparison                             |     ΔR2 | ΔR2 95% CI       | Series where method better   |   Wilcoxon p (series-level) |
+|:---------|:-----------------|:---------------------------------------|--------:|:-----------------|:-----------------------------|----------------------------:|
+| State    | Fixed origin     | XGBoost + history − Persistence        | -0.0041 | [-0.011, +0.003] | 347/886                      |                     6.3e-10 |
+| State    | Fixed origin     | Persistence + correction − Persistence |  0.0001 | [-0.004, +0.006] | 348/886                      |                     1.4e-09 |
+| State    | Rolling          | XGBoost + history − Persistence        | -0.0005 | [-0.005, +0.004] | 284/886                      |                     5.5e-26 |
+| State    | Rolling          | Persistence + correction − Persistence |  0.0028 | [-0.001, +0.007] | 270/886                      |                     4.1e-27 |
+| State    | Rolling vs fixed | Rolling − fixed-origin persistence     |  0.0235 | [+0.012, +0.037] |                              |                             |
+| District | Fixed origin     | XGBoost + history − Persistence        |  0.0265 | [+0.023, +0.030] | 9128/18616                   |                     8e-11   |
+| District | Fixed origin     | Persistence + correction − Persistence |  0.0195 | [+0.017, +0.023] | 8872/18616                   |                     0.0053  |
+| District | Rolling          | XGBoost + history − Persistence        |  0.0208 | [+0.017, +0.024] | 8044/18616                   |                     4.3e-68 |
+| District | Rolling          | Persistence + correction − Persistence |  0.0172 | [+0.015, +0.020] | 7780/18616                   |                     9.2e-83 |
+| District | Rolling vs fixed | Rolling − fixed-origin persistence     |  0.0483 | [+0.043, +0.054] |                              |                             |
